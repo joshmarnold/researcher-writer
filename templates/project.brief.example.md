@@ -1,4 +1,4 @@
-# Research Brief (Sample)
+# Project Brief (Sample)
 
 ## Working Thesis
 

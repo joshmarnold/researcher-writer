@@ -37,7 +37,7 @@ Research Writer is designed to be **generic and flexible**. Give it an outline (
 1. **Create Project** → Set up research brief and project structure — see [/new-project](#create-a-project)
 2. **Create Draft** → Create a draft folder (e.g., draft-one, draft-two, or date-based) — see [/new-draft](#new-draft) and [Draft Config](#draft-config-draftconfigyml)
 3. **Create Outline** → Draft an outline for your piece (headings or bullets) — see [Outline](#outline)
-4. **Run Research** — see [Research](#research) → research → write → review → compile (confirm outline.md at start)
+4. **Run Write** — see [Write](#write) → research → write → review → compile (confirm outline.md at start)
 
 ## Slash Commands at a Glance
 
@@ -46,7 +46,7 @@ Research Writer is designed to be **generic and flexible**. Give it an outline (
 - `/use-project` `<project-name>` — sets active project (`.active-project`) and aligns active draft (keeps same draft name if it exists in the project, else selects the first draft)
 - `/use-draft` `<draft-name>` — sets active draft (`projects/{project}/.active-draft`)
 - [`/outline`](#outline) `[input]`
-- [`/research`](#research)
+- [`/write`](#write)
 
 ## Example Workflow
 
@@ -61,8 +61,8 @@ Create "Policy Analysis" project with brief: Analyzing regulatory impacts...
 # Run outline — auto-generates if missing; normalizes input (uses conventions in templates/outline.example.md)
 /outline
 
-# Run research pipeline
-/research
+# Run write pipeline
+/write
 ```
 
 ## Create a Project
@@ -233,9 +233,9 @@ Hints the research depth for a node marked (or defaulted) to `[research]`. Light
 
 Runs a media pass for this node (opt-in). Current scope: image assets, and URLs from X.com and YouTube. Media is attached to the research for use at compile time.
 
-## Research
+## Write
 
-- **Command:** `/research`
+- **Command:** `/write`
 - **Purpose:** Runs the full pipeline from outline → research → writing → review → compilation.
 - **Active context:** Uses the active project (`.active-project`) and active draft (`projects/{project}/.active-draft`).
 - **Inputs:**

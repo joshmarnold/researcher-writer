@@ -1,6 +1,6 @@
 ---
 name: researcher
-description: "Use this agent when you need to conduct targeted research for specific outline items or sections of a document, gathering concrete examples, facts, quotes, and citations from web sources. Examples: <example>Context: User is working on a research report about climate policy and needs evidence for a specific section. user: 'I need research for the section on carbon pricing mechanisms in Europe' assistant: 'I'll use the research-gatherer agent to find concrete examples, facts, and citations about European carbon pricing mechanisms.' <commentary>The user needs targeted research for a specific outline item, which is exactly what the research-gatherer agent is designed for.</commentary></example> <example>Context: User is preparing a brief on recent AI regulations and needs supporting evidence. user: 'Can you research the latest developments in AI safety regulations for my outline item on government responses?' assistant: 'I'll deploy the research-gatherer agent to find recent facts, examples, and citations about government AI safety regulations.' <commentary>This requires web research with citations and date-stamped facts, perfect for the research-gatherer agent.</commentary></example>"
+description: "Gathers concrete, verifiable evidence with citations for outline items."
 model: sonnet
 color: blue
 ---
