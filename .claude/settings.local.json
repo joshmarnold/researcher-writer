@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "allow": ["read:all", "write:all"],
+    "allow": [
+      "WebSearch"
+    ],
     "deny": [],
     "ask": []
   }

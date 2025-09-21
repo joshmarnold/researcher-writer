@@ -15,6 +15,14 @@ It coordinates four sub-agents — **Researcher**, **Writer**, **Reviewer**, and
 - Read active draft name from `projects/{active-project}/.active-draft`.
 - Abort if either is missing.
 
+**Path base**
+- {project} = !`cat .active-project`
+- {draft}   = !`cat projects/{project}/.active-draft`
+- {base}    = projects/{project}/drafts/{draft}`
+
+**Ensure required dirs exist**
+- !`mkdir -p {base}/research {base}/sections {base}/synopses`
+
 ### Validate inputs
 - Ensure `project.brief.md`, `draft.config.yml`, and `outline.md` exist and are non-empty.
 - Ensure every outline node has `[research]` or `[skip]`.
@@ -35,7 +43,7 @@ It coordinates four sub-agents — **Researcher**, **Writer**, **Reviewer**, and
 **Researcher step**  
 - **Purpose**: Gather 3–5 concrete, date-stamped, verifiable pieces of evidence with citations.  
 - **Inputs**: project brief, draft config, the section’s micro-brief, markers, and any user questions.  
-- **Outputs**: `research/N.md` containing sources, key findings, optional media links, and a short narrative summary.  
+- **Outputs**: Output file MUST be `{base}/research/{ID}.md` (no other path). Containing sources, key findings, optional media links, and a short narrative summary.  
 - **Notes**:  
   - `[light]` → 2–3 facts, short.  
   - `[deep]` → more sources, counterpoints, timeline.  
@@ -52,8 +60,7 @@ It coordinates four sub-agents — **Researcher**, **Writer**, **Reviewer**, and
   - Current section’s micro-brief  
   - `research/N.md`  
 - **Outputs**:  
-  - `sections/N.md` (draft prose)  
-  - `synopses/N.txt` (3–5 sentence summary of this section)  
+  - Output files MUST be `{base}/sections/{ID}.md` and `{base}/synopses/{ID}.txt` (3–5 sentence summary of this section)  
 - **Notes**: Each section writer should both connect back to what just came before *and* anticipate what’s coming next using the outline.
 
 **Reviewer step**  
@@ -61,6 +68,11 @@ It coordinates four sub-agents — **Researcher**, **Writer**, **Reviewer**, and
 - **Inputs**: `sections/N.md`  
 - **Outputs**: Edits applied in place.  
 - **Notes**: Reviewer ensures clarity, accuracy, formatting, and tone match the project brief.
+
+**Validate outputs**
+- Research: !`test -f {base}/research/{ID}.md || (f=$(find . -maxdepth 3 -name "{ID}.md" -type f | head -n1); if [ -n "$f" ]; then mkdir -p {base}/research && mv "$f" "{base}/research/{ID}.md"; fi)`
+- Section:  !`test -f {base}/sections/{ID}.md  || (f=$(find . -maxdepth 3 -name "{ID}.md" -type f | head -n1); if [ -n "$f" ]; then mkdir -p {base}/sections && mv "$f" "{base}/sections/{ID}.md"; fi)`
+- Synopsis: !`test -f {base}/synopses/{ID}.txt || (f=$(find . -maxdepth 3 -name "{ID}.txt" -type f | head -n1); if [ -n "$f" ]; then mkdir -p {base}/synopses && mv "$f" "{base}/synopses/{ID}.txt"; fi)`
 
 ### After all tasks complete
 **Editor-glue step**  

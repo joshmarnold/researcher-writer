@@ -8,7 +8,7 @@ Create a new research project with the specified name and brief content.
 
 **Usage Examples:**
 
-**Basic usage (uses defaults from templates/research-brief.sample.md):**
+**Basic usage (uses defaults from templates/project.brief.example.md):**
 
 ```
 /new-project
@@ -38,7 +38,7 @@ Analyzing recent policy impacts on healthcare reform and regulatory changes.
 - Project name is required. If not explicitly provided, attempt to infer a short, relevant name from the brief’s thesis (e.g., key nouns/phrases, ≤ 5 words). If a clear name cannot be inferred, STOP and ask the user to provide one. Do not use generic timestamped names.
 
 1. Parse optional parameters from command arguments: `audience="..."`, `voice="..."`, `citation="..."`
-2. Read default values from `templates/research-brief.sample.md`
+2. Read default values from `templates/project.brief.example.md`
 3. Parse or derive the project name from the command content/brief (e.g., "Policy Analysis"); sanitize for folder
 4. Sanitize project name for directory (e.g., "policy-analysis")
 5. Create `projects/{sanitized-project-name}/` directory

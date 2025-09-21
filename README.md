@@ -73,7 +73,7 @@ Use `/new-project` to create a new project folder with a research brief and draf
 
   - Validates inputs: if no brief content is provided (at least a Working Thesis line/paragraph), it stops and makes no changes; a project name is required (either provided explicitly or inferable from the thesis).
   - Parses optional parameters from the command: `audience="..."`, `voice="..."`, `citation="..."`
-  - Reads defaults from `templates/research-brief.sample.md`
+  - Reads defaults from `templates/project.brief.example.md`
   - Extracts or infers a concise, relevant project name from your message/brief (e.g., "Policy Analysis") and sanitizes it for a folder name
   - Creates `projects/{project}/`
   - Writes a complete brief to `projects/{project}/project.brief.md` using your provided thesis plus defaults/overrides
