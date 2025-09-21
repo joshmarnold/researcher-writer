@@ -1,0 +1,12 @@
+mode: narrative # narrative | list | hybrid
+media_aggressiveness: normal # low | normal | high
+list_defaults:
+  item_definition: ""
+  inclusion: []
+  exclusion: []
+  max_items: 25
+  grouping: theme # none | theme | chronology
+  date_window: ""
+sources:
+  prefer: [official, reputable_journalism, academic]
+  avoid: []
