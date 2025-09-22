@@ -1,4 +1,4 @@
-# Research Writer
+# Research Writer (Toy Project)
 
 _Give it an outline, get back a researched article._
 
